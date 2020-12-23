@@ -1,46 +1,31 @@
 package model
 
-import (
-	"github.com/google/uuid"
-)
+type AddressBook interface {
+	ID() string
+	Contacts() []Contact
+	AddContact(contactID string, contactName string)
+}
 
 type addressBook struct {
 	id       string
 	contacts []Contact
 }
 
-type AddressBook interface {
-	GetContacts() []Contact
-	AddContact(contactName string)
-}
-
-func NewAddressBook(contactNames []string, generator IDGenerator) *addressBook {
-	return newAddressBook(contactNames, generator.Generate())
-}
-
-func newAddressBook(contactNames []string, generatedAddressBookID string) *addressBook {
-	var contacts = []Contact{}
-	for _, contactName := range contactNames {
-		contacts = append(contacts, Contact{
-			contactID: uuid.New().String(),
-			name:      contactName,
-		})
-	}
+func NewAddressBook(id string, contacts []Contact) AddressBook {
 	return &addressBook{
-		id:       generatedAddressBookID,
+		id:       id,
 		contacts: contacts,
 	}
 }
 
-// GetContacts returns a list of contacts in the address book
-func (a *addressBook) GetContacts() []Contact {
+func (a addressBook) ID() string {
+	return a.id
+}
+
+func (a addressBook) Contacts() []Contact {
 	return a.contacts
 }
 
-// AddContact adds a new contact in the address book
-func (a *addressBook) AddContact(contactName string) {
-	a.contacts = append(a.contacts, Contact{
-		contactID: uuid.New().String(),
-		name:      contactName,
-	})
+func (a *addressBook) AddContact(contactID string, contactName string) {
+	a.contacts = append(a.contacts, NewContact(contactID, contactName))
 }

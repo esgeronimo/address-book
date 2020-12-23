@@ -6,4 +6,5 @@ import "esgeronimo/address-book/core/model"
 type AddressBookRepository interface {
 	Get(ID string) (model.AddressBook, error)
 	Add(addressBook model.AddressBook) error
+	AddContact(addressBookID string, contact model.Contact) error
 }

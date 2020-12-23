@@ -1,11 +1,21 @@
 package model
 
-type Contact struct {
+type Contact interface {
+	Name() string
+}
+
+type contact struct {
 	contactID string
 	name      string
 }
 
-// GetContactID returns contacts unique identifier
-func (c Contact) GetContactID() string {
+func NewContact(contactID string, name string) Contact {
+	return &contact{
+		contactID: contactID,
+		name:      name,
+	}
+}
+
+func (c contact) Name() string {
 	return c.contactID
 }
