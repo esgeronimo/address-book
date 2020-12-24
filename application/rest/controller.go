@@ -9,10 +9,10 @@ import (
 type httpApplication struct{}
 
 func NewHttpApplication() application.Application {
-	return &ginApplication{}
+	return &httpApplication{}
 }
 
-func (g ginApplication) Init() {
+func (g httpApplication) Init() {
 	r := gin.Default()
 
 	r.GET("/address-book/:addressBookID", GetAddressBookHandler())
