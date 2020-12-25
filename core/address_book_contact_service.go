@@ -24,7 +24,11 @@ func NewAddressBookContactService(addressBookID string, repo port.AddressBookRep
 
 func (a addressBookContactService) GetAll() ([]model.Contact, error) {
 	addressBook, err := a.repo.Get(a.addressBookID)
-	return addressBook.Contacts(), err
+	if err != nil {
+		return nil, err
+	}
+
+	return addressBook.Contacts(), nil
 }
 
 func (a *addressBookContactService) Add(contact model.Contact) error {
