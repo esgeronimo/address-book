@@ -6,7 +6,6 @@ import (
 )
 
 type AddressBookContactService interface {
-	GetAll() ([]model.Contact, error)
 	Add(contact model.Contact) error
 }
 
@@ -20,15 +19,6 @@ func NewAddressBookContactService(addressBookID string, repo port.AddressBookRep
 		addressBookID: addressBookID,
 		repo:          repo,
 	}
-}
-
-func (a addressBookContactService) GetAll() ([]model.Contact, error) {
-	addressBook, err := a.repo.Get(a.addressBookID)
-	if err != nil {
-		return nil, err
-	}
-
-	return addressBook.Contacts(), nil
 }
 
 func (a *addressBookContactService) Add(contact model.Contact) error {

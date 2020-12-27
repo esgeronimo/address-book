@@ -17,5 +17,5 @@ func NewContact(contactID string, name string) Contact {
 }
 
 func (c contact) Name() string {
-	return c.contactID
+	return c.name
 }
