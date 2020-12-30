@@ -7,8 +7,8 @@ type AddressBook interface {
 }
 
 type addressBook struct {
-	id       string
-	contacts []Contact
+	id       string    `json:"addressBookID"`
+	contacts []Contact `json:"contacts"`
 }
 
 func NewAddressBook(id string, contacts []Contact) AddressBook {

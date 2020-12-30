@@ -3,10 +3,12 @@ package core
 import (
 	"esgeronimo/address-book/core/model"
 	"esgeronimo/address-book/core/port"
+
+	"github.com/google/uuid"
 )
 
 type AddressBookContactService interface {
-	Add(contact model.Contact) error
+	Add(contactName string) error
 }
 
 type addressBookContactService struct {
@@ -21,6 +23,6 @@ func NewAddressBookContactService(addressBookID string, repo port.AddressBookRep
 	}
 }
 
-func (a *addressBookContactService) Add(contact model.Contact) error {
-	return a.repo.AddContact(a.addressBookID, contact)
+func (a *addressBookContactService) Add(contactName string) error {
+	return a.repo.AddContact(a.addressBookID, model.NewContact(uuid.New().String(), contactName))
 }

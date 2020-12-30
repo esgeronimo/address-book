@@ -14,10 +14,8 @@ func TestAdd(t *testing.T) {
 
 	service := NewAddressBookContactService("address-book-0", repo)
 
-	newContact := model.NewContact("contact-0-0", "eugene")
-
 	// when
-	err := service.Add(newContact)
+	err := service.Add("contact-0-0")
 
 	// then
 	if err != nil {

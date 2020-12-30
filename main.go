@@ -1,5 +1,7 @@
 package main
 
-func main() {
+import "esgeronimo/address-book/application"
 
+func main() {
+	application.Run()
 }
