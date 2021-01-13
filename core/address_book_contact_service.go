@@ -1,22 +1,15 @@
 package core
 
-import (
-	"esgeronimo/address-book/core/model"
-	"esgeronimo/address-book/core/port"
-
-	"github.com/google/uuid"
-)
-
 type AddressBookContactService interface {
 	Add(contactName string) error
 }
 
 type addressBookContactService struct {
 	addressBookID string
-	repo          port.AddressBookRepository
+	repo          AddressBookRepository
 }
 
-func NewAddressBookContactService(addressBookID string, repo port.AddressBookRepository) AddressBookContactService {
+func NewAddressBookContactService(addressBookID string, repo AddressBookRepository) AddressBookContactService {
 	return &addressBookContactService{
 		addressBookID: addressBookID,
 		repo:          repo,
@@ -24,5 +17,5 @@ func NewAddressBookContactService(addressBookID string, repo port.AddressBookRep
 }
 
 func (a *addressBookContactService) Add(contactName string) error {
-	return a.repo.AddContact(a.addressBookID, model.NewContact(uuid.New().String(), contactName))
+	return a.repo.AddContact(a.addressBookID, contactName)
 }

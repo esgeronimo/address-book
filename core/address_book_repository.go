@@ -1,4 +1,4 @@
-package port
+package core
 
 import "esgeronimo/address-book/core/model"
 
@@ -6,5 +6,5 @@ import "esgeronimo/address-book/core/model"
 type AddressBookRepository interface {
 	Get(ID string) (model.AddressBook, error)
 	Add(addressBook model.AddressBook) error
-	AddContact(addressBookID string, contact model.Contact) error
+	AddContact(addressBookID string, contactName string) error
 }

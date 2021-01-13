@@ -2,7 +2,6 @@ package rest
 
 import (
 	"esgeronimo/address-book/core"
-	"esgeronimo/address-book/core/port"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -13,15 +12,17 @@ type AddressBookContactHandler interface {
 }
 
 type addressBookContactHandler struct {
-	repo port.AddressBookRepository
+	repo core.AddressBookRepository
 }
 
-func NewAddressBookContactHandler() AddressBookContactHandler {
-	return &addressBookContactHandler{}
+func NewAddressBookContactHandler(repo core.AddressBookRepository) AddressBookContactHandler {
+	return &addressBookContactHandler{
+		repo: repo,
+	}
 }
 
 type addContactReq struct {
-	contactName string `json:"contactName" binding:"required"`
+	ContactName string `json:"contactName" binding:"required"`
 }
 
 func (a *addressBookContactHandler) AddContact(c *gin.Context) {
@@ -38,7 +39,7 @@ func (a *addressBookContactHandler) AddContact(c *gin.Context) {
 	}
 
 	service := core.NewAddressBookContactService(addressBookID, a.repo)
-	if err := service.Add(req.contactName); err != nil {
+	if err := service.Add(req.ContactName); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}

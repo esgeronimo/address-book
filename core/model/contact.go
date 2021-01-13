@@ -5,8 +5,8 @@ type Contact interface {
 }
 
 type contact struct {
-	contactID string `json:"contactID"`
-	name      string `json:"name"`
+	contactID string
+	name      string
 }
 
 func NewContact(contactID string, name string) Contact {
