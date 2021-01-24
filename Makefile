@@ -1,3 +1,6 @@
+VERSION := develop
+IMAGE := esgeronimo/address-book:${VERSION}
+
 default: build
 
 init:
@@ -5,10 +8,10 @@ init:
 	@mkdir build
 
 build: init test
-	go build
+	docker build -t ${IMAGE} .
 
-run: build test
-	go run main.go
+deploy: build
+	kubectl create deployment address-book --image=${IMAGE}
 
 test: init
 	go test -v -coverpkg=./... -coverprofile=build/cover.out ./...
