@@ -11,7 +11,7 @@ build: init test
 	docker build -t ${IMAGE} .
 
 deploy: build
-	kubectl create deployment address-book --image=${IMAGE}
+	sed 's/{{ .Values.image.tag }}/develop/g' k8/address-book-deployment.yaml | kubectl apply -f -
 
 test: init
 	go test -v -coverpkg=./... -coverprofile=build/cover.out ./...
@@ -20,4 +20,4 @@ coverage: init test
 	go tool cover -html=build/cover.out 
 
 test_integ:
-	newman run esgeronimo-address-book.postman_collection.json
+	newman run postman/esgeronimo-address-book.postman_collection.json
