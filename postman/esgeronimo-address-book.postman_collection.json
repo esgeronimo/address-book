@@ -1,54 +1,45 @@
 {
+	"variables": [],
 	"info": {
-		"_postman_id": "ff3b2625-6e0c-4702-9592-35026d75e408",
 		"name": "esgeronimo/address-book",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "25c00270-177a-831b-2fdf-9064c4121d90",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "address-book",
+			"description": "",
 			"item": [
 				{
-					"name": "http://localhost:8080/address-book/address-book-1",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "http://localhost:{{port}}/address-book/address-book-1",
 					"request": {
+						"url": "http://localhost:{{port}}/address-book/address-book-1",
 						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
 								"value": "application/json",
-								"type": "text"
+								"description": ""
 							},
 							{
 								"key": "Content-Type",
 								"value": "application/json",
-								"type": "text"
+								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"contactName\": \"omellete deu froumage\"\n}"
 						},
-						"url": {
-							"raw": "http://localhost:8080/address-book/address-book-1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"address-book",
-								"address-book-1"
-							]
-						}
+						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "http://localhost:8080/address-book/address-book-1/contacts",
+					"name": "http://localhost:{{port}}/address-book/address-book-1/contacts",
 					"request": {
+						"url": "http://localhost:{{port}}/address-book/address-book-1/contacts",
 						"method": "POST",
 						"header": [
 							{
@@ -66,25 +57,11 @@
 							"mode": "raw",
 							"raw": "{\n    \"contactName\": \"omellete deu froumage 23\"\n}"
 						},
-						"url": {
-							"raw": "http://localhost:8080/address-book/address-book-1/contacts",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"address-book",
-								"address-book-1",
-								"contacts"
-							]
-						}
+						"description": ""
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

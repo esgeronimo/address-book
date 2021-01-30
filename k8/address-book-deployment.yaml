@@ -26,3 +26,16 @@ spec:
            requests:
              memory: 128Mi
              cpu: "0.2"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Values.serviceName }}"
+spec:
+  selector:
+    app: address-book
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

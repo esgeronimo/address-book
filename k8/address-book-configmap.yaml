@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: address-book-cfg
+data:
+  addressbook.sample.key: SAMPLE_VALUE
+

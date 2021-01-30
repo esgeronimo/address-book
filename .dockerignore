@@ -4,8 +4,7 @@ esgeronimo-address-book.postman_collection.json
 # Ignore K8 resources
 k8
 
-# Ignore Make file
+build
 Makefile
-
-# Ignore git
 .git
+.gitignore
