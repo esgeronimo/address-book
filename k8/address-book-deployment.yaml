@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: address-book
-          image: esgeronimo/address-book:{{ .Values.image.tag }}
+          image: "{{ .Values.image }}"
           ports:
             - containerPort: 8080
           resources:
