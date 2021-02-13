@@ -5,7 +5,7 @@ import (
 )
 
 type AddressBookService interface {
-	Get(addressBookID string) (model.AddressBook, error)
+	Get(addressBookID string) (*model.AddressBook, error)
 }
 
 type addressBookService struct {
@@ -18,10 +18,6 @@ func NewAddressBookService(repo AddressBookRepository) AddressBookService {
 	}
 }
 
-func (a addressBookService) Get(addressBookID string) (addressBook model.AddressBook, err error) {
-	addressBook, err = a.repo.Get(addressBookID)
-	if err != nil {
-		return (model.AddressBook)(nil), err
-	}
-	return addressBook, nil
+func (a addressBookService) Get(addressBookID string) (addressBook *model.AddressBook, err error) {
+	return a.repo.Get(addressBookID)
 }

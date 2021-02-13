@@ -13,9 +13,9 @@ type mockAddressBookRepository struct {
 	mock.Mock
 }
 
-func (m *mockAddressBookRepository) Get(ID string) (model.AddressBook, error) {
+func (m *mockAddressBookRepository) Get(ID string) (*model.AddressBook, error) {
 	returnArgs := m.Called(ID)
-	return returnArgs.Get(0).(model.AddressBook), returnArgs.Error(1)
+	return returnArgs.Get(0).(*model.AddressBook), returnArgs.Error(1)
 }
 
 func (m *mockAddressBookRepository) Add(addressBook model.AddressBook) error {

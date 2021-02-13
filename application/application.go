@@ -27,10 +27,19 @@ func Run() {
 }
 
 func addressBookRepository() core.AddressBookRepository {
-	return db.NewMockAddressBookRepository(map[string]model.AddressBook{
-		"address-book-1": model.NewAddressBook("address-book-1", []model.Contact{
-			model.NewContact("contact-id-0", "eugene karl geronimo"),
-			model.NewContact("contact-id-1", "ma. ciela salazar"),
-		}),
+	return db.NewMockAddressBookRepository(map[string]*model.AddressBook{
+		"address-book-1": &model.AddressBook{
+			ID: "address-book-1",
+			Contacts: []model.Contact{
+				model.Contact{
+					ContactID: "contact-id-0",
+					Name:      "eugene karl geronimo",
+				},
+				model.Contact{
+					ContactID: "cotnact-id-1",
+					Name:      "ma. ciela salazar",
+				},
+			},
+		},
 	})
 }

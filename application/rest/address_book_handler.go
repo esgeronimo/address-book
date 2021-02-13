@@ -27,13 +27,13 @@ type getAddressBookResp struct {
 	Contacts []string `json:"contacts"`
 }
 
-func (a addressBookHandler) mapResponse(addressBook model.AddressBook) getAddressBookResp {
+func (a addressBookHandler) mapResponse(addressBook *model.AddressBook) getAddressBookResp {
 	var contacts []string
-	for _, contact := range addressBook.Contacts() {
-		contacts = append(contacts, contact.Name())
+	for _, contact := range addressBook.Contacts {
+		contacts = append(contacts, contact.Name)
 	}
 	return getAddressBookResp{
-		ID:       addressBook.ID(),
+		ID:       addressBook.ID,
 		Contacts: contacts,
 	}
 }
