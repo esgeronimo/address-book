@@ -11,6 +11,10 @@ steps:
     organization: 'esgeronimo-github'
     scannerMode: 'CLI'
     configMode: 'file'
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - script: |
     make build_app VERSION=$(build.buildId)
   displayName: 'Build image'
