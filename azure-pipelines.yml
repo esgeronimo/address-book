@@ -1,5 +1,11 @@
 # Go
 # Build your Go project.
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonar-source'
+    organization: 'esgeronimo-github'
+    scannerMode: 'CLI'
+    configMode: 'file'
 # Add steps that test, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/go
 
