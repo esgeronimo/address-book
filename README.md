@@ -1,4 +1,4 @@
-# address-book
+# address-book (DRAFT)
 The goal of this repository is to establish standards and structure to a golang microservice.
 
 ## Project Structure
