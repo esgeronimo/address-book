@@ -2,8 +2,9 @@ package application
 
 import (
 	"esgeronimo/address-book/application/rest"
-	"esgeronimo/address-book/core"
 	"esgeronimo/address-book/core/model"
+	"esgeronimo/address-book/core/repo"
+	"esgeronimo/address-book/core/service"
 	"esgeronimo/address-book/infrastructure/db"
 )
 
@@ -18,7 +19,7 @@ func init() {
 
 	app = rest.NewRestApplication(
 		repo,
-		core.NewAddressBookService(repo),
+		service.NewAddressBookService(repo),
 	)
 }
 
@@ -26,7 +27,7 @@ func Run() {
 	app.Run()
 }
 
-func addressBookRepository() core.AddressBookRepository {
+func addressBookRepository() repo.AddressBookRepository {
 	return db.NewMockAddressBookRepository(map[string]*model.AddressBook{
 		"address-book-1": &model.AddressBook{
 			ID: "address-book-1",

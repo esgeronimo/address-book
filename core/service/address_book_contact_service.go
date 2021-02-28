@@ -1,4 +1,6 @@
-package core
+package service
+
+import "esgeronimo/address-book/core/repo"
 
 type AddressBookContactService interface {
 	Add(contactName string) error
@@ -6,10 +8,10 @@ type AddressBookContactService interface {
 
 type addressBookContactService struct {
 	addressBookID string
-	repo          AddressBookRepository
+	repo          repo.AddressBookRepository
 }
 
-func NewAddressBookContactService(addressBookID string, repo AddressBookRepository) AddressBookContactService {
+func NewAddressBookContactService(addressBookID string, repo repo.AddressBookRepository) *addressBookContactService {
 	return &addressBookContactService{
 		addressBookID: addressBookID,
 		repo:          repo,

@@ -1,8 +1,8 @@
 package db
 
 import (
-	"esgeronimo/address-book/core"
 	"esgeronimo/address-book/core/model"
+	"esgeronimo/address-book/core/repo"
 	"fmt"
 
 	"github.com/google/uuid"
@@ -13,7 +13,7 @@ type mockAddressBookRepository struct {
 }
 
 // NewMockAddressBookRepository returns instance of db.mockAddressBookRepository
-func NewMockAddressBookRepository(addressBookMap map[string]*model.AddressBook) core.AddressBookRepository {
+func NewMockAddressBookRepository(addressBookMap map[string]*model.AddressBook) repo.AddressBookRepository {
 	return &mockAddressBookRepository{
 		addressBookMap: addressBookMap,
 	}

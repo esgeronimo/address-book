@@ -1,17 +1,18 @@
 package rest
 
 import (
-	"esgeronimo/address-book/core"
+	"esgeronimo/address-book/core/repo"
+	"esgeronimo/address-book/core/service"
 
 	"github.com/gin-gonic/gin"
 )
 
 type restApplication struct {
-	repo               core.AddressBookRepository
-	addressBookService core.AddressBookService
+	repo               repo.AddressBookRepository
+	addressBookService service.AddressBookService
 }
 
-func NewRestApplication(repo core.AddressBookRepository, addressBookService core.AddressBookService) *restApplication {
+func NewRestApplication(repo repo.AddressBookRepository, addressBookService service.AddressBookService) *restApplication {
 	return &restApplication{
 		repo:               repo,
 		addressBookService: addressBookService,

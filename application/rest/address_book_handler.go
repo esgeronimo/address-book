@@ -1,8 +1,8 @@
 package rest
 
 import (
-	"esgeronimo/address-book/core"
 	"esgeronimo/address-book/core/model"
+	"esgeronimo/address-book/core/service"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -13,10 +13,10 @@ type AddressBookHandler interface {
 }
 
 type addressBookHandler struct {
-	service core.AddressBookService
+	service service.AddressBookService
 }
 
-func NewAddressBookHandler(service core.AddressBookService) AddressBookHandler {
+func NewAddressBookHandler(service service.AddressBookService) AddressBookHandler {
 	return &addressBookHandler{
 		service: service,
 	}

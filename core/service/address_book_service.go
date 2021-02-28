@@ -1,7 +1,8 @@
-package core
+package service
 
 import (
 	"esgeronimo/address-book/core/model"
+	"esgeronimo/address-book/core/repo"
 )
 
 type AddressBookService interface {
@@ -9,10 +10,10 @@ type AddressBookService interface {
 }
 
 type addressBookService struct {
-	repo AddressBookRepository
+	repo repo.AddressBookRepository
 }
 
-func NewAddressBookService(repo AddressBookRepository) AddressBookService {
+func NewAddressBookService(repo repo.AddressBookRepository) *addressBookService {
 	return &addressBookService{
 		repo: repo,
 	}

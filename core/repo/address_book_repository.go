@@ -1,4 +1,4 @@
-package core
+package repo
 
 import "esgeronimo/address-book/core/model"
 
