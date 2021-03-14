@@ -4,6 +4,8 @@ The goal of this repository is to establish standards and structure to a golang 
 ## Project Structure
 Code for the actual microservice comprises of the 3 main separation:
 
-* _core/*_
-* _application/*_ 
-* _infrastructure/*_
+* _internal/core/*_
+* _internal/application/*_ 
+* _internal/infrastructure/*_
+
+`// TODO`
