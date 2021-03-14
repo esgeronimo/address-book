@@ -1,8 +1,8 @@
 package db
 
 import (
-	"esgeronimo/address-book/core/model"
-	"esgeronimo/address-book/core/repo"
+	"esgeronimo/address-book/internal/core/model"
+	"esgeronimo/address-book/internal/core/repo"
 	"fmt"
 
 	"github.com/google/uuid"

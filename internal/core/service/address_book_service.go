@@ -1,8 +1,8 @@
 package service
 
 import (
-	"esgeronimo/address-book/core/model"
-	"esgeronimo/address-book/core/repo"
+	"esgeronimo/address-book/internal/core/model"
+	"esgeronimo/address-book/internal/core/repo"
 )
 
 type AddressBookService interface {

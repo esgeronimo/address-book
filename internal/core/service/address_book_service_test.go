@@ -2,8 +2,8 @@ package service_test
 
 import (
 	"errors"
-	"esgeronimo/address-book/core/model"
-	"esgeronimo/address-book/core/service"
+	"esgeronimo/address-book/internal/core/model"
+	"esgeronimo/address-book/internal/core/service"
 	"fmt"
 	"testing"
 

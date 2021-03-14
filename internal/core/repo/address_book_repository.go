@@ -1,6 +1,6 @@
 package repo
 
-import "esgeronimo/address-book/core/model"
+import "esgeronimo/address-book/internal/core/model"
 
 // AddressBookRepository is a datastore port for aggregate model.AddressBook
 type AddressBookRepository interface {

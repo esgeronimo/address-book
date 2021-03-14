@@ -1,8 +1,8 @@
 package rest
 
 import (
-	"esgeronimo/address-book/core/model"
-	"esgeronimo/address-book/core/service"
+	"esgeronimo/address-book/internal/core/model"
+	"esgeronimo/address-book/internal/core/service"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

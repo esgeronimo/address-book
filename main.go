@@ -1,6 +1,6 @@
 package main
 
-import "esgeronimo/address-book/application"
+import "esgeronimo/address-book/internal/application"
 
 func main() {
 	application.Run()

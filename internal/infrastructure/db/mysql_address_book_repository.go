@@ -2,7 +2,7 @@ package db
 
 import (
 	"database/sql"
-	"esgeronimo/address-book/core/model"
+	"esgeronimo/address-book/internal/core/model"
 	"log"
 )
 

@@ -1,11 +1,11 @@
 package application
 
 import (
-	"esgeronimo/address-book/application/rest"
-	"esgeronimo/address-book/core/model"
-	"esgeronimo/address-book/core/repo"
-	"esgeronimo/address-book/core/service"
-	"esgeronimo/address-book/infrastructure/db"
+	"esgeronimo/address-book/internal/application/rest"
+	"esgeronimo/address-book/internal/core/model"
+	"esgeronimo/address-book/internal/core/repo"
+	"esgeronimo/address-book/internal/core/service"
+	"esgeronimo/address-book/internal/infrastructure/db"
 )
 
 type Application interface {

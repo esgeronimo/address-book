@@ -1,7 +1,7 @@
 package service_test
 
 import (
-	"esgeronimo/address-book/core/model"
+	"esgeronimo/address-book/internal/core/model"
 
 	"github.com/stretchr/testify/mock"
 )

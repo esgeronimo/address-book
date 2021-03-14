@@ -1,6 +1,6 @@
 package service
 
-import "esgeronimo/address-book/core/repo"
+import "esgeronimo/address-book/internal/core/repo"
 
 type AddressBookContactService interface {
 	Add(contactName string) error

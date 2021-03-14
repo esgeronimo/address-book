@@ -1,7 +1,7 @@
 package service_test
 
 import (
-	"esgeronimo/address-book/core/service"
+	"esgeronimo/address-book/internal/core/service"
 	"fmt"
 	"testing"
 
