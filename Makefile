@@ -9,9 +9,9 @@ init:
 	@rm -rf build
 	@mkdir build
 
-build: init build_db build_app
+build: init build_db test_app build_app
 
-build_app: init test_app
+build_app: init
 	docker build -t ${IMAGE} .
 	sed 's|{{ .Values.image }}|${IMAGE}|g;s|{{ .Values.serviceName }}|${K8_SVC_NAME}|g' k8/address-book-deployment.yaml > build/address-book-deployment.yaml
 
