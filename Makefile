@@ -16,7 +16,7 @@ build_app: init test_app
 	sed 's|{{ .Values.image }}|${IMAGE}|g;s|{{ .Values.serviceName }}|${K8_SVC_NAME}|g' k8/address-book-deployment.yaml > build/address-book-deployment.yaml
 
 test_app: init
-	go test -v -coverpkg=./... -coverprofile=build/cover.out ./...
+	go test -v -coverpkg=./... -coverprofile=build/cover.out -json ./... > build/test-report.json
 
 coverage: init test_app
 	go tool cover -html=build/cover.out	
