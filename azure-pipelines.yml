@@ -7,6 +7,7 @@ pool:
 steps:
 - script: |
     make test_app
+  displayName: 'Test and coverage'
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'sonar-source'
