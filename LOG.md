@@ -1,5 +1,28 @@
 # Work Log
 
+## 2021-04-03 - Enabling Code Coverage
+Noticed that the code coverage report in Sonar Cloud has `0%` code coverage so I fixed it.
+
+First change is to separate the _image_ build task with the unit test and coverage execution. 
+
+From:
+```
+1. Sonar Cloud Tasks
+2. Unit Test and Coverage + Image build
+```
+To:
+```
+1. Unit Test and Coverage
+2. Sonar Cloud Tasks
+3. Image build
+```
+
+For the actual change to enable code coverage, it would only involve adding the following in `sonar-project.properties` file:
+```
+sonar.go.coverage.reportPaths=build/cover.out
+```
+This takes into consideration that files I produced during the test execution is placed in `build/` directory.
+
 ## 2021-03-14
 For the sake of keeping historical information on work I did for this repository along with the tools I used, I will be keeping this work log. Previous work that is not logged on this file will be discussed later. 
 
