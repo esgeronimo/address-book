@@ -22,7 +22,7 @@ coverage: init test_app
 	go tool cover -html=build/cover.out	
 
 build_db: init
-	docker build -t ${DB_IMAGE} mysql
+	docker build -t ${DB_IMAGE} --platform linux/x86_64 mysql 
 	sed 's|{{ .Values.image }}|${DB_IMAGE}|g' k8/mysql-deployment.yaml > build/mysql-deployment.yaml
 
 deploy: build

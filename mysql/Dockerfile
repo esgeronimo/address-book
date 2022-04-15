@@ -1,4 +1,4 @@
-FROM mysql:8.0.23
+FROM mysql:latest
 
 ENV MYSQL_DATABASE address_book
 
