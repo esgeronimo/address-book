@@ -17,6 +17,15 @@ spec:
       containers:
         - name: address-book
           image: "{{ .Values.image }}"
+          env:
+            - name: DB_USER
+              value: root
+            - name: DB_PASSWORD
+              value: devP@55w0rd
+            - name: DB_ADDRESS
+              value: mysql
+            - name: DB_DATABASE
+              value: address_book
           ports:
             - containerPort: 8080
           resources:

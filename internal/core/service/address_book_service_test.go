@@ -16,11 +16,11 @@ func TestGet(t *testing.T) {
 	repo.On("Get", "address-book-0").Return(&model.AddressBook{
 		ID: "address-book-0",
 		Contacts: []model.Contact{
-			model.Contact{
+			{
 				ContactID: "contact-0-0",
 				Name:      "eugene",
 			},
-			model.Contact{
+			{
 				ContactID: "contact-0-1",
 				Name:      "karl",
 			},
