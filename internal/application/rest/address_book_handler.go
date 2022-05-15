@@ -10,6 +10,7 @@ import (
 
 type AddressBookHandler interface {
 	GetAddressBook(c *gin.Context)
+	AddAddressBook(c *gin.Context)
 }
 
 type addressBookHandler struct {
@@ -40,10 +41,28 @@ func (a addressBookHandler) mapResponse(addressBook *model.AddressBook) getAddre
 
 func (a addressBookHandler) GetAddressBook(c *gin.Context) {
 	addressBook, err := a.service.Get(c.Params.ByName("addressBookID"))
+
 	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"message": err.Error()})
 		return
 	}
 
 	c.JSON(http.StatusOK, gin.H{"data": a.mapResponse(addressBook)})
+}
+
+func (a addressBookHandler) AddAddressBook(c *gin.Context) {
+	addressBook := model.AddressBook{}
+
+	err := c.BindJSON(&addressBook)
+	if err != nil {
+		c.AbortWithError(http.StatusBadRequest, err)
+		return
+	}
+
+	err = a.service.Add(addressBook)
+	if err != nil {
+		c.AbortWithError(http.StatusInternalServerError, err)
+	}
+
+	c.Status(http.StatusOK)
 }

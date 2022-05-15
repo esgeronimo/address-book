@@ -29,6 +29,7 @@ func (p restApplication) setup() *gin.Engine {
 
 	addressBookHandler := NewAddressBookHandler(p.addressBookService)
 	r.GET("/address-book/:addressBookID", addressBookHandler.GetAddressBook)
+	r.POST("/address-book", addressBookHandler.AddAddressBook)
 
 	addressBookContactHandler := NewAddressBookContactHandler(p.repo)
 	r.POST("/address-book/:addressBookID/contacts", addressBookContactHandler.AddContact)

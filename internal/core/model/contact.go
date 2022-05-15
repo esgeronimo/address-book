@@ -1,6 +1,6 @@
 package model
 
 type Contact struct {
-	ContactID string
-	Name      string
+	ContactID string `json:"contactID"`
+	Name      string `json:"name"`
 }

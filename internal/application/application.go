@@ -60,7 +60,6 @@ func addressBookRepositoryMySQL() repo.AddressBookRepository {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer db.Close()
 
 	pingErr := db.Ping()
 	if pingErr != nil {

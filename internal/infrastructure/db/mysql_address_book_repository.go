@@ -41,6 +41,28 @@ func (m *mysqlAddressBookRepository) Get(addressBookID string) (*model.AddressBo
 }
 
 func (m *mysqlAddressBookRepository) Add(addressBook model.AddressBook) error {
+	tx, err := m.db.Begin()
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback()
+
+	_, err = tx.Exec("INSERT INTO ADDRESS_BOOK (UUID) VALUES (?)", addressBook.ID)
+	if err != nil {
+		return err
+	}
+
+	for _, contact := range addressBook.Contacts {
+		_, err = tx.Exec("INSERT INTO CONTACT (UUID, NAME, ADDRESS_BOOK_ID) VALUES (?, ?, ?)", contact.ContactID, contact.Name, addressBook.ID)
+		if err != nil {
+			return err
+		}
+	}
+
+	if err = tx.Commit(); err != nil {
+		return err
+	}
+
 	return nil
 }
 
