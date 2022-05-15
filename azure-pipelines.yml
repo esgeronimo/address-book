@@ -19,5 +19,5 @@ steps:
   inputs:
     pollingTimeoutSec: '300'
 - script: |
-    make build_app VERSION=$(build.buildId)
+    make build-app VERSION=$(build.buildId)
   displayName: 'Build image'
